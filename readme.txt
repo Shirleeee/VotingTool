@@ -9,7 +9,7 @@ MySQL
 HTML/CSS/JS
 
 
-Zum Starten des Servers mit folgender Eingabe:
+Zum Starten:
 
 $env:DEBUG = "*"
 deno run --allow-net --allow-read --allow-write --allow-env --unstable --watch server.js
