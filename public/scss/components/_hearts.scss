@@ -1,0 +1,64 @@
+.ratings {
+  width: 100%;
+  direction: rtl;
+  text-align: center;
+  & .cancel-hearts {
+    display: inline-block;
+    width: 0.5rem;
+    vertical-align: text-bottom;
+    margin-right: 10px;
+    position: relative;
+    display: none;
+    // z-index: 8;
+    & svg {
+      width: 25px;
+      height: 25px;
+      fill: var(--grey-heart);
+    }
+  }
+  & .heart {
+    position: relative;
+    // line-height: 100px;
+    margin-top: 2rem;
+    display: inline-block;
+    transition: color 0.2s ease;
+    color: var(--grey-heart);
+
+    &:before {
+      content: "\2665";
+      width: 100px;
+      height: 40px;
+      font-size: 40px;
+    }
+
+    &:hover,
+    &.selected,
+    &:hover ~ .heart,
+    &.selected ~ .heart {
+      transition: color 0.8s ease;
+      color: var(--heart-red);
+    }
+
+    & .heart__radiobtn {
+      position: absolute;
+      // appearance: none;
+      width: 50px !important;
+      height: 70px !important;
+      top: -5%;
+      right: 3%;
+      // border-radius: 50% 0 0 0;
+      // opacity: 0;
+      //    background: rgba(green, .5);
+      // z-index: 100;
+      cursor: pointer;
+    }
+    & .heart__label {
+      // position: relative;
+      color: rgb(122, 90, 103);
+      // top: -1.5em;
+      display: flex;
+      flex-direction: column-reverse;
+      padding-top: 10px;
+    }
+  }
+}

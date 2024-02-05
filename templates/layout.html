@@ -1,0 +1,84 @@
+<html lang="de">
+  <head>
+    <link rel="icon" type="image/svg+xml" href="#" />
+
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flensburger Kurzfilmtage 2023</title>
+
+    <link rel="stylesheet" href="/scss/style.css" />
+
+    <link rel="stylesheet" href="/fontawesome/scss/fontawesome.css" />
+
+    <link href="/fontawesome/css/solid.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.typekit.net/pov1erc.css">
+  </head>
+
+  <body>
+    <header class="main-container">
+      <div class="header-container">
+        <!-- <div class="kft-logo-container">  -->
+          <img id="kftLogo" src="/img/Fl-Kt-Logo.png" alt="Flensburger Kurzfilmtage Logo">
+        <!-- </div> -->
+        {% if films %}       
+        <div class="divright">
+          <h1>{{films[0].blocktitle}}</h1>
+    
+          <h2>{{films[0].blocksubline}}</h2>
+
+          <div>
+          <div class="menu-icon">        
+            <div class="menu">
+              <input type="checkbox" id="menu__toggle" />
+              <label for="menu__toggle" class="menu__btn">
+                <span> Filme </span>
+              </label>  
+              <nav>
+                <ul >
+                  {% for item in films %}
+                  <li>
+                    <a href="#{{loop.index}}" class="menu__item">{{item.filmtitle}} </a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </nav>
+            </div>
+          </div>
+          </div>
+        </div>
+ 
+        {% endif %}
+
+      </div>
+      <div class="intro__text">
+        {% if errors.name %}
+        <p class="error errUpper"  {% if blockname === "wbd" %}data-i18n="block.errorName"{% endif %}>Name: {{errors.name}}</p>
+        {% endif %} {% if errors.email1 %}
+        <p class="error errUpper"  {% if blockname === "wbd" %}data-i18n="block.errorMail1"{% endif %}>Email: {{errors.email1}}</p>
+        {% endif %} 
+        {% if errors.email2 %}
+        <p class="error errUpper"  {% if blockname === "wbd" %}data-i18n="block.errorMail2"{% endif %}>Email: {{errors.email2}}</p>
+        {% endif %}{% if errors.feedback %}
+        <p class="error errUpper"  {% if blockname === "wbd" %}data-i18n="block.errorFeedback"{% endif %}>Feedback: {{errors.feedback}}</p>
+        {% endif %} 
+   
+        {% if errors %}
+        <input id="hiddenErrors" class="datasec__checkbox-input" type="text" hidden value="{{errors}}">
+        {% endif %}
+    
+      </div>
+
+    </header>
+
+    <main>{%block content%} {%endblock%}</main>
+  </body>
+</html>
+<script type="module">
+  import * as filmselect from "/js/filmmenue.js";
+  filmselect.init();
+</script>
+<!-- <script type="module">
+  import * as onScroll from "/js/onScroll.js";
+  onScroll.init();
+</script> -->

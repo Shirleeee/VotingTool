@@ -1,0 +1,36 @@
+// .error-linkBack {
+//     text-decoration: underline;
+// }
+
+.error {
+  display: flex;
+  align-items: center;
+
+  border-radius: 5px;
+  padding: 1rem;
+  border-radius: 5px;
+
+  // width: max-content;
+  // gap: 1rem;
+}
+
+.error:after {
+  font-size: 1.2rem;
+}
+
+.error {
+  background-color: #f44336b0;
+  height: 60px;
+}
+
+.errUpper {
+  background-color: #fc706680;
+}
+
+.errDatasec {
+  background-color: #66fca280;
+}
+
+#hiddenErrors {
+  display: none;
+}

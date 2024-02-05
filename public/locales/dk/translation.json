@@ -1,0 +1,21 @@
+{
+  "block": {
+    "nextfilm": "Næste film",
+
+    "further": "Mere",
+    "wintext": "Der er 3x2 fribilletter til biografen 51Stufen at vinde. For at kontakte dig har vi brug for dit navn og din e-mailadresse. ",
+
+    "yourname": "Dit navn",
+
+    "yourmail": "Din e-mail",
+
+    "feedback": "Er der andet, du vil fortælle os? Så kan du slippe af med det her.",
+    "infonotice": "Vi vil ikke bruge dine data til andet end at kontakte dig, hvis du vinder.",
+    "datasec": "Samtykke til privatlivspolitikken",
+    "send": "Send"
+  },
+  "thankyou": {
+    "thanks": "Mange tak for din stemme,",
+    "win": "Vi vender tilbage til dig, når du har vundet."
+  }
+}

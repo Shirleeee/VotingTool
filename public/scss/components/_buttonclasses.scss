@@ -1,0 +1,50 @@
+.btn {
+  // margin-block: 2rem;
+  margin-inline: 0 auto;
+  padding: 0.5rem;
+  // border-color: var(--highlight2);
+  // border-radius: var(--border-rad-1);
+  background-color: var(--primary-900);
+  color: var(--primary-250);
+  width: 7rem;
+  place-self: center;
+  justify-self: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.btn-round {
+  // border-radius: 50%;
+  border-radius: 0.5rem;
+}
+
+.send-btn {
+  color: var(--primary-900);
+  // margin: .5rem 2rem .5rem 5rem;
+  background-color: var(--primary-250);
+  // border-radius: var(--border-rad-2);
+  // border-color: var(--red)
+  border: none;
+  text-decoration: underline;
+
+  box-shadow: rgba(16, 21, 23, 0.56) 0px 22px 70px 4px;
+}
+
+.btn-container {
+  display: grid;
+
+  & > * {
+    margin: 2rem;
+  }
+
+  & > a {
+    justify-self: center;
+  }
+}
+
+.btn-further-container,
+.btn-next-container {
+  display: none;
+}

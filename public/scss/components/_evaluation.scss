@@ -1,0 +1,62 @@
+.chartwrapper {
+  justify-self: center;
+  margin-left: 10px;
+  border-left: 1px solid #ee9999;
+}
+.winnerText{
+  & span{
+    text-decoration: underline;
+    color: rgb(248, 212, 186);
+    font-weight: 900;
+  }
+}
+.linksblocks-container {
+  display: inline-block;
+}
+
+.eva-container {
+  justify-content: center;
+  padding-top: 16rem;
+}
+
+.bar-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1em;
+  & .marginleft {
+    margin-left: 1rem;
+  }
+  & .bar-item-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    & .bar-item {
+      height: 2rem;
+      background-color: #ee9999;
+
+      & > p {
+        color: rgb(202, 202, 228);
+      }
+    }
+  }
+
+  & .data-container {
+    width: 100%;
+    & .bestresult {
+      color: #eed499;
+
+      font-weight: 900;
+    }
+  }
+}
+
+#span-result {
+  color: rgb(205, 205, 218);
+  margin-left: 3rem;
+}
+.span-whole {
+  display: block;
+  color: #eb7b7b;
+  margin-left: 5rem;
+}

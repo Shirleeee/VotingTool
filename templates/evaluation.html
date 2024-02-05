@@ -1,0 +1,48 @@
+{% extends 'layout.html' %} {%block content %}
+
+
+<div class="eva-container">
+    <div class="chartwrapper">
+        <div class="linksblocks-container">
+            {% for item in alltheBlocks %}
+            <a href="/evaqZaa3/{{item.block}}" {% if currentBlock==item.block %} class="chosenBlock" {% endif %}>|
+                {{item.block}}
+                | </a>
+             {% endfor %}
+             <p class="span-whole">{{amountVotesByBlock}} = alle abgesendeten Stimmen für die Filme des Blocks </p>
+             {% if currentBlock !==  "wbp" and currentBlock !==  "wbd"  %} 
+             <h2 class="winnerText">Der Gewinnerfilm ist <span> {{winnerMC.blockWinner}}</span> mit dem Ergebnis <span> {{winnerMC.value}}</span> aus dem Block <span> {{winnerMC.blockid}}</span></h2>
+            {% endif %}
+            </div>
+
+        <hr>
+
+        <div class="bar-container">
+            
+            {% for item in filmObj %}
+            <div class="marginleft">{{item.filmtitle}}</div>
+            <div class="bar-item-container">
+                <div class="bar-item"></div>
+            </div>
+
+            <div class="data-container marginleft">
+
+                <span id="span-result">{{item.percent}} %</span>
+                <br>
+                {% if item.percent === filmObj.blockWin %}
+           
+                  <span class="bestresult">Das Beste Ergebnis {{filmObj.blockWin}} </span> <br>
+                {% endif %}
+            </div>
+            <hr>
+            {% endfor %}
+          
+        </div> 
+    </div>
+</div>
+<script>
+
+</script>
+<script type="module"  > import * as reload from "/js/reload.js";
+    reload.init();</script>
+{%endblock%}
