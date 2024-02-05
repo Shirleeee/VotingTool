@@ -27,9 +27,6 @@ export const handleRequest = async (request) => {
     sessionStore: sessionsControl.createSessionStore(sessionStore),
     cookies: new CookieMap(request),
     token: tokenMap,
-    state: {
-      authenticated: false,
-    },
     session: {},
     request: request,
     url: new URL(request.url),

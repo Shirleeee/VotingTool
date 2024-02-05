@@ -23,7 +23,7 @@ export async function routes(ctx) {
     const matches = ctx.url.pathname.match(/\/evaqZaa3\/(.*)/);
     ctx.params.blockname = matches[1];
 
-    debug("@wettbewerbsblock1. GET matches-->  %O", matches);
+    debug("@GET matches-->  %O", matches);
     return await controller.evaluation(ctx);
   }
 
@@ -32,12 +32,10 @@ export async function routes(ctx) {
 
   if (pattern.match(url.pathname) && ctx.request.method == "GET") {
     const matches = pattern.match(url.pathname);
-    debug("@router. GET matches-->  %O", matches);
-    // ctx.params.href = url.href;
+    debug("@GET matches-->  %O", matches);
     ctx.params.voteStation = matches.station;
     ctx.params.urlid = matches.urlid;
-
-    debug("@router. GET ctx.params.urlid-->  %O", ctx.params.urlid);
+    debug("@GET ctx.params.urlid-->  %O", ctx.params.urlid);
 
     return await controller.wblock_add(ctx);
   }
@@ -50,7 +48,7 @@ export async function routes(ctx) {
     ctx.params.voteStation = matches.station;
     ctx.params.href = url.href;
 
-    debug("@wettbewerbsblock1. POST matches-->  %O", matches);
+    debug("@POST matches-->  %O", matches);
 
     return await controller.wblock_submit(ctx);
   }

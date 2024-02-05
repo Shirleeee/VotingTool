@@ -3,8 +3,6 @@ const debug = Debug("app:calculations");
 import * as filmeModel from "./../db/models/wball-films.js";
 import * as voteModel from "./../db/models/wball-rate.js";
 
-const MAX_POINTS = 6;
-
 function parseToNum(sumVotesbyBlockObject) {
   return Object.values(sumVotesbyBlockObject).map((value) => {
     if (value === null) {
@@ -16,6 +14,8 @@ function parseToNum(sumVotesbyBlockObject) {
 }
 
 const votes100PercentBlock = (amountVotesByBlock) => {
+  const MAX_POINTS = 6;
+
   return amountVotesByBlock * MAX_POINTS;
 };
 

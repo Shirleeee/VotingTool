@@ -6,7 +6,7 @@ export const serveStaticFile = (base) => async (ctx) => {
   const fullPath = path.join(base, ctx.url.pathname);
 
   if (fullPath.indexOf(base) !== 0 || fullPath.indexOf("\0") !== -1) {
-    const flashText = "Irgendwas lief falsch.";
+    const flashText = "Irgendwas lief falsch. Sorry";
     ctx.response.body = ctx.nunjucks.render("error.html", {
       flashText,
     });
@@ -24,7 +24,7 @@ export const serveStaticFile = (base) => async (ctx) => {
       read: true,
     });
   } catch (_error) {
-    const flashText = "Irgendwas lief falsch.";
+    const flashText = "Irgendwas lief falsch. Sorry";
     ctx.response.body = ctx.nunjucks.render("error.html", {
       flashText,
     });
