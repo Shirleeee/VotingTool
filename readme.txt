@@ -1,6 +1,6 @@
 
 
-für Gewinnspiel und Publikumspreis Rating Tool Flensburger Kurzfilmtage 2023
+Voting Tool 
 
 Frontend und Backend mit:
 
