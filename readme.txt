@@ -6,7 +6,7 @@ Frontend und Backend mit:
 
 DENO/JS
 MySQL
-HTML/CSS/JS
+HTML/SASS/JS
 
 
 Zum Starten:
