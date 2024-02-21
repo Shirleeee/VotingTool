@@ -24,9 +24,9 @@ const calcResults = (value, votesPoint100) => {
 };
 
 export async function calcBestOfBlock(db, blockname) {
-  let result = await voteModel.sumAllVotingsbyBlock(db, blockname);
+  const summedVotes = await voteModel.sumAllVotingsbyBlock(db, blockname);
   // debug("@calcBest. sumAllVotingsbyBlock result %O", result);
-  result = result[0];
+  const result = summedVotes[0];
 
   //parse all summed votes for each film from string to number, check if null
   const sumVotesbyFilmArray = parseToNum(result);
@@ -42,8 +42,8 @@ export async function calcBestOfBlock(db, blockname) {
 
   let blockWinner = { value: 0 };
 
-  getFilms.forEach((objekt) => {
-    const filmIndex = parseInt(objekt.blockid.split("-")[1], 10);
+  getFilms.forEach((filmObject) => {
+    const filmIndex = parseInt(filmObject.blockid.split("-")[1], 10);
 
     if (!isNaN(filmIndex)) {
       sumVotesbyFilmArray.forEach((value, index) => {
@@ -51,16 +51,16 @@ export async function calcBestOfBlock(db, blockname) {
           const valueRelative = calcResults(value, votesPoint100);
 
           if (valueRelative > blockWinner.value) {
-            blockWinner.film = objekt.filmtitle;
+            blockWinner.film = filmObject.filmtitle;
             blockWinner.value = valueRelative;
-            blockWinner.blockid = objekt.blockid;
+            blockWinner.blockid = filmObject.blockid;
           }
-          objekt[`film${filmIndex}`] = value;
-          objekt[`percent`] = valueRelative;
+          filmObject[`film${filmIndex}`] = value;
+          filmObject[`percent`] = valueRelative;
         }
       });
     }
-    delete objekt.imagepath;
+    delete filmObject.imagepath;
   });
 
   getFilms.blockWin = blockWinner.value;

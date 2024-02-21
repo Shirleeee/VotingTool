@@ -13,7 +13,7 @@ const debug = Debug("app:controller");
 
 export async function wblock_add(ctx) {
   const token = csrf.generateToken();
-  ctx.token.set("tokenwb1", token);
+  ctx.token.set("tokenBlocks", token);
   debug("@wblock_add. token-->  %O", token);
 
   const block = await filmeModel.getBlocknameByUrlids(ctx.db, ctx.params.urlid);
@@ -90,7 +90,7 @@ export async function wblock_submit(ctx) {
     return ctx;
   }
 
-  csrf.checkToken(ctx, "tokenwb1", data._csrf, "/error");
+  csrf.checkToken(ctx, "tokenBlocks", data._csrf, "/error");
 
   if ((!(data.email === "") && !(data.name === "")) || data.feedback) {
     await zuschauerModel.addToDB(ctx.db, data);
@@ -144,7 +144,7 @@ export async function evaluation(ctx) {
   // debug("@evaluation. alltheBlocks %O", alltheBlocks);
   const overallWinnerMC = await calc.getMainContestWinner(ctx.db, alltheBlocks);
 
-  const filmObj = await calc.calcBestOfBlock(ctx.db, blockname);
+  const filmObjects = await calc.calcBestOfBlock(ctx.db, blockname);
 
   const amountVotesByBlock = await voteModel.countVotesByBlock(
     ctx.db,
@@ -152,7 +152,7 @@ export async function evaluation(ctx) {
   );
 
   ctx.response.body = ctx.nunjucks.render("evaluation.html", {
-    filmObj: filmObj,
+    filmObj: filmObjects,
     winnerMC: overallWinnerMC,
     amountVotesByBlock: amountVotesByBlock,
     currentBlock: blockname,
